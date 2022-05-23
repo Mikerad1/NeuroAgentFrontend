@@ -7,9 +7,9 @@ class Authentication {
     final AuthorizationTokenResponse result =
         await appAuth.authorizeAndExchangeCode(
       AuthorizationTokenRequest(
-          'flutter', 'com.michaelrademeyer.neuroagent://oauth2callback',
+          'flutter', 'com.michaelrademeyer.neuroagent:/oauth2callback',
           discoveryUrl:
-              'http://10.0.0.16:5000/.well-known/openid-configuration',
+              'http://10.0.0.26:5000/.well-known/openid-configuration',
           scopes: [
             'openid',
             'profile',

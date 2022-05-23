@@ -27,26 +27,8 @@ class _LoginState extends State<Login> {
             ),
             ElevatedButton(
               onPressed: () async {
-                //Authentication authentication = Authentication();
-                //accessToken = await authentication.Authenticate();
-                FlutterAppAuth appAuth = FlutterAppAuth();
-                final AuthorizationTokenResponse result =
-                await appAuth.authorizeAndExchangeCode(
-                  AuthorizationTokenRequest(
-                      'flutter', 'com.michaelrademeyer.neuroagent://oauth2callback',
-                      discoveryUrl:
-                      'http://10.0.0.16:5000/.well-known/openid-configuration',
-                      scopes: [
-                        'openid',
-                        'profile',
-                        'offline_access',
-                        'neuroagentapi'
-                      ],
-                      allowInsecureConnections: true),
-                ) as AuthorizationTokenResponse;
-                setState(() {
-                  accessToken = result.accessToken as String;
-                });
+                Authentication authentication = Authentication();
+                accessToken = await authentication.Authenticate();
                 //Navigator.push(context, MaterialPageRoute(builder: (context) => OCDTracker()));
               },
               child: const Text("Login"),
